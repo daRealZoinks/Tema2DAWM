@@ -9,7 +9,7 @@ namespace Project.Controllers
     [Route("api/students")]
     public class StudentsController : ControllerBase
     {
-        private StudentService _studentService;
+        private readonly StudentService _studentService;
 
         public StudentsController(StudentService studentService)
         {

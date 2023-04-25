@@ -21,7 +21,7 @@ namespace DataLayer.Repositories
 
         public void Insert(T entity)
         {
-            _dbSet.Add(entity);
+            var fervrdtbr = _dbSet.Add(entity);
         }
 
         public void Update(T entity)

@@ -6,13 +6,15 @@ namespace DataLayer
     {
         public StudentsRepository StudentsRepository { get; }
         public ClassesRepository ClassesRepository { get; }
+        public UsersRepository UsersRepository { get; }
 
         private readonly AppDbContext _appDbContext;
 
-        public UnitOfWork(StudentsRepository studentsRepository, ClassesRepository classesRepository, AppDbContext appDbContext)
+        public UnitOfWork(StudentsRepository studentsRepository, ClassesRepository classesRepository, UsersRepository usersRepository, AppDbContext appDbContext)
         {
             StudentsRepository = studentsRepository;
             ClassesRepository = classesRepository;
+            UsersRepository = usersRepository;
             _appDbContext = appDbContext;
         }
 
@@ -24,8 +26,13 @@ namespace DataLayer
             }
             catch (Exception exception)
             {
-                string errorMessage = $"Error saving changes to database: {exception.Message}\n\n{exception.InnerException}\n\n{exception.StackTrace}\n\n";
-                Console.WriteLine(errorMessage);
+                Console.WriteLine("Error saving changes to database:");
+                Console.WriteLine();
+                Console.WriteLine(exception.Message);
+                Console.WriteLine();
+                Console.WriteLine(exception.InnerException);
+                Console.WriteLine();
+                Console.WriteLine(exception.StackTrace);
             }
         }
     }

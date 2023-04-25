@@ -9,9 +9,12 @@ builder.Services.AddDbContext<AppDbContext>();
 
 builder.Services.AddScoped<StudentService>();
 builder.Services.AddScoped<ClassService>();
+builder.Services.AddScoped<AuthorizationService>();
+builder.Services.AddScoped<UserService>();
 
 builder.Services.AddScoped<StudentsRepository>();
 builder.Services.AddScoped<ClassesRepository>();
+builder.Services.AddScoped<UsersRepository>();
 builder.Services.AddScoped<UnitOfWork>();
 
 builder.Services.AddControllers();
