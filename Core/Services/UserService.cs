@@ -48,6 +48,11 @@ namespace Core.Services
         {
             var user = _unitOfWork.UsersRepository.GetByEmail(payload.Email);
 
+            if (user == null)
+            {
+                return null;
+            }
+
             var isPasswordFine = _authorizationService.VerifyHashedPassword(user.PasswordHash, payload.Password);
 
             if (isPasswordFine)

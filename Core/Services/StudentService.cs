@@ -102,5 +102,11 @@ namespace Core.Services
 
             return results;
         }
+
+        public Dictionary<Student, List<Grade>> GetAllStudentsGrades()
+        {
+            var results = _unitOfWork.StudentsRepository.GetAllStudentsGrades();
+            return results;
+        }
     }
 }

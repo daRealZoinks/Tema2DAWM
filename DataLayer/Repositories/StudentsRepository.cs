@@ -10,6 +10,15 @@ namespace DataLayer.Repositories
         {
         }
 
+        public Dictionary<Student, List<Grade>> GetAllStudentsGrades()
+        {
+            var results = _appDbContext.Students
+                .Include(x => x.Grades)
+                .ToDictionary(x => x, x => x.Grades);
+
+            return results;
+        }
+
         public Student GetByIdWithGrades(int studentId, CourseType courseType)
         {
             var result = _appDbContext.Students
