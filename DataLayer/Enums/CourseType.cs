@@ -8,6 +8,6 @@
         Biology,
         Chemistry,
         ComputerScience,
-        PhisicalEducation
+        PhisicalEducation,
     }
 }
